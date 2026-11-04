@@ -1,0 +1,18 @@
+services:
+  #konfigurasi container database
+  postgres-db:
+    image: postgres:16-alpine
+    container_name: bookstore_postgre_container
+    restart:  always
+    environment: 
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: bookstorepassword
+      POSTGRES_DATABASE: bookstore_db
+    ports: 
+      #Format portDiKomputer:PostDiContainer
+      - "5433:5432"
+    volumes:
+      #menyimpan database ke hdd
+      - bookstore_data:/var/lib/postgresql/data
+volumes: 
+  bookstore_data:
