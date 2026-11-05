@@ -5,8 +5,4 @@ export class CreateCategoryDto {
   @IsNotEmpty({ message: 'Nama kategori tidak boleh kosong' })
   @MaxLength(100, { message: 'Nama kategori maksimal 100 karakter' })
   name: string;
-
-  @IsOptional()
-  @IsString({ message: 'Deskripsi harus berupa teks' })
-  description?: string;
 }
