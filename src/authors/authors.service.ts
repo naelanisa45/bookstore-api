@@ -29,13 +29,14 @@ export class AuthorsService {
   }
 
   async create(body: any): Promise<Author> {
-  const author = new Author();
-  Object.assign(author, body);
+    const author = new Author();
+    
+    Object.assign(author, body);
 
-  const savedAuthor = await this.authorRepository.save(author);
+    const savedAuthor = await this.authorRepository.save(author);
 
-  return savedAuthor;
-}
+    return savedAuthor;
+  }
 
   async update(id: string, body: any): Promise<Author> {
     const author = await this.findById(id);
